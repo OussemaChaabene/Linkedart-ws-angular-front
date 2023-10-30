@@ -16,13 +16,13 @@ draggable?: boolean;
 })
 export class MapsComponent implements OnInit {
 
-    artists: any[];
+    users: any[];
 
     constructor(private artworkService: ArtworkService) { }
     
     ngOnInit() {
-      this.artworkService.getAllArtists().subscribe((data) => {
-        this.artists = data;
+      this.artworkService.getAllUsers().subscribe((data) => {
+        this.users = data;
         console.log(data);
       });
     }

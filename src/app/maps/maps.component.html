@@ -130,27 +130,46 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Artworks</h4>
+                        <h4 class="card-title ">Users</h4>
+                        <form class="navbar-form">
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                    <i class="material-icons">search</i>
+                                    <div class="ripple-container"></div>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                           <table class="table">
                               <thead class="text-primary">
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Followed By User</th>
-                                <th>Artwork</th>
-                                <th>Biography</th>
-                              </thead>
-                              <tbody>
-                                <tr *ngFor="let artist of artists">
-                                    <td>{{ artist?.name?.value }}</td>
-                                    <td>{{ artist?.email?.value }}</td>
-                                    <td>{{ artist?.followedByUser?.value.split('#')[1] }}</td>
-                                    <td>{{ artist?.hasArtwork?.value.split('#')[1] }}</td>
-                                    <td>{{ artist?.biography?.value }}</td>
+                                
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Nationality</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let user of users">
+                                    <td>{{ user.ID.value }}</td>
+                                    <td>{{ user.name.value }}</td>
+                                    <td>
+                                        <ng-container *ngIf="user.gender.value === 'homme'; else female">
+                                          <span>♂ Male</span>
+                                        </ng-container>
+                                        <ng-template #female>
+                                          <span>♀ Female</span>
+                                        </ng-template>
+                                    </td>                                    
+                                    <td>{{ user.nationality.value }}</td>
+                                    <td>{{ user.email.value }}</td>
+                                    <td>{{ user.phone.value }}</td>
                                   </tr>
-                              </tbody>
+                                </tbody>
                             </table>
                             
                         </div>
