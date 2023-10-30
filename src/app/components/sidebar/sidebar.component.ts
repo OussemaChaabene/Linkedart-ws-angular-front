@@ -13,8 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/table-list', title: 'ArtWorks',  icon:'photo_album', class: '' },
     // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
     // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+    { path: '/maps', title: 'Users',  icon:'people', class: '' },
+    { path: '/notifications', title: 'Artists',  icon:'account_circle', class: '' },
 ];
 
 @Component({

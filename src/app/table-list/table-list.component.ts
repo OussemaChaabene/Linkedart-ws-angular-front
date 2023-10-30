@@ -8,12 +8,17 @@ import { ArtworkService } from 'app/artwork.service';
 })
 export class TableListComponent implements OnInit {
   artworks: any[];
+  artists: any[];
 
   constructor(private artworkService: ArtworkService) { }
 
   ngOnInit() {
     this.artworkService.getAllArtworks().subscribe((data) => {
       this.artworks = data;
+    });
+    this.artworkService.getAllArtworks().subscribe((data) => {
+      this.artists = data;
+      console.log(data);
     });
   }
 
