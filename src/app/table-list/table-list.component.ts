@@ -8,7 +8,8 @@ import { ArtworkService } from 'app/artwork.service';
 })
 export class TableListComponent implements OnInit {
   artworks: any[];
-  artists: any[];
+  artworkById: any;
+  artworkId: string = '';
 
   constructor(private artworkService: ArtworkService) { }
 
@@ -16,10 +17,15 @@ export class TableListComponent implements OnInit {
     this.artworkService.getAllArtworks().subscribe((data) => {
       this.artworks = data;
     });
-    this.artworkService.getAllArtworks().subscribe((data) => {
-      this.artists = data;
-      console.log(data);
-    });
+
   }
+  onSubmit() {
+    // Check if artworkId is not empty before making the service call
+    if (this.artworkId) {
+        this.artworkService.getArtworkById(this.artworkId).subscribe((artworkData) => {
+            console.log('Artwork Data:', artworkData);
+        });
+    }
+}
 
 }

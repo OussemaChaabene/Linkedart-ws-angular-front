@@ -17,14 +17,39 @@ draggable?: boolean;
 export class MapsComponent implements OnInit {
 
     users: any[];
-
+    userId: any;
+    userMail :any;
+    ok=false;
+    user:any;
     constructor(private artworkService: ArtworkService) { }
     
     ngOnInit() {
       this.artworkService.getAllUsers().subscribe((data) => {
         this.users = data;
         console.log(data);
+        this.ok=false;
+
       });
     }
+
+    onSubmitId() {
+      // Check if artworkId is not empty before making the service call
+      if (this.userId) {
+          this.artworkService.getUserByID(this.userId).subscribe((userIdData) => {
+              console.log('Artwork Data:', userIdData);
+              this.user = userIdData;
+              this.ok=true;
+          });
+      }
+  }
+  
+  onSubmitMail() {
+    // Check if artworkId is not empty before making the service call
+    if (this.userId) {
+        this.artworkService.getUserByID(this.userId).subscribe((userMailData) => {
+            console.log('Artwork Data:', userMailData);
+        });
+    }
+}
 }
     

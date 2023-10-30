@@ -13,6 +13,9 @@ export class ArtworkService {
   getAllArtworks(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/getAllArtworks`);
   }
+  getAllPosts(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/getAllPosts`);
+  }
 
   getAllArtists(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/getAllArtists`);
@@ -24,6 +27,10 @@ export class ArtworkService {
 
   getAllUsers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/getAllUsers`);
+  }
+
+  getArtworkById(id: string): Observable<any[]> {
+    return this.http.get<any>(`${this.baseUrl}/getArtworkByID/${id}`);
   }
 
   getUserByID(id: number): Observable<any> {

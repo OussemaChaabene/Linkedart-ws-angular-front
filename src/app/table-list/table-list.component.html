@@ -5,6 +5,16 @@
               <div class="card">
                   <div class="card-header card-header-danger">
                       <h4 class="card-title ">Artworks</h4>
+                      <form class="navbar-form" (ngSubmit)="onSubmit()">
+                        <div class="input-group no-border">
+                            <input type="text" [(ngModel)]="artworkId" class="form-control" placeholder="Search...">
+                            <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                            </button>
+                        </div>
+                    </form>
+                    
                   </div>
                   <div class="card-body">
                       <div class="table-responsive">

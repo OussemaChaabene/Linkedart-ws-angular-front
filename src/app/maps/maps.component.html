@@ -131,19 +131,28 @@
                 <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Users</h4>
-                        <form class="navbar-form">
+                        <form class="navbar-form" (ngSubmit)="onSubmitId()">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input type="text" [(ngModel)]="userId" class="form-control" placeholder="Search by id">
                                 <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
                                     <i class="material-icons">search</i>
                                     <div class="ripple-container"></div>
                                 </button>
                             </div>
                         </form>
+                        <!-- <form class="navbar-form" (ngSubmit)="onSubmitMail()">
+                            <div class="input-group no-border">
+                                <input type="text" [(ngModel)]="userId" class="form-control" placeholder="Search by mail">
+                                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                    <i class="material-icons">search</i>
+                                    <div class="ripple-container"></div>
+                                </button>
+                            </div>
+                        </form> -->
                     </div>
-                    <div class="card-body">
+                    <div *ngIf="ok===false" class="card-body">
                         <div class="table-responsive">
-                          <table class="table">
+                          <table  class="table">
                               <thead class="text-primary">
                                 
                                     <th>ID</th>
@@ -171,9 +180,36 @@
                                   </tr>
                                 </tbody>
                             </table>
+
                             
                         </div>
                     </div>
+
+                      <div *ngIf="ok===true" class="card-body">
+                        <div class="table-responsive">
+
+                            <table  class="table">
+                                <thead class="text-primary">
+                                  
+                                      <th>ID</th>
+                                      <th>Name</th>
+                                      <th>Biography</th>
+                                      <th>Email</th>
+                                  </thead>
+                                  <tbody>
+                                    <tr >
+                                      <td>{{ user.id }}</td>
+                                      <td>{{ user.name }}</td>                                 
+                                      <td>{{ user.biography }}</td>
+                                      <td>{{ user.email }}</td>
+                                    </tr>
+                                  </tbody>
+                              </table>
+
+                            
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- <div class="col-md-12">
