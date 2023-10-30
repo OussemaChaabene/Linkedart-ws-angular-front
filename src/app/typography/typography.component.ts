@@ -14,6 +14,7 @@ export class TypographyComponent implements OnInit {
   ngOnInit() {
     this.artworkService.getAllPosts().subscribe((data) => {
       this.posts = data;
+      console.log(data);
     });
   }
 
